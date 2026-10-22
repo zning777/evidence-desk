@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {computeTrend,validateSnapshot,validateValuations} from '../lib/market.mjs';
+import {computeTrend,validateSnapshot,validateValuations,validateMarketTimestamp} from '../lib/market.mjs';
+const asOf=Date.now();
 const stamp=Date.parse('2026-10-21T00:00:00+08:00');
 const stock={thscode:'000333.SZ',adjust:'forward',item:Array.from({length:21},(_,i)=>({date_ms:stamp-(20-i)*86400000,close_price:100+i}))};
 const index={thscode:'000300.SH',item:stock.item.map(x=>({...x,close_price:100}))};
@@ -10,8 +11,15 @@ test('日期不足不补零',()=>assert.throws(()=>computeTrend({...stock,item:s
 test('日期重复拒绝计算',()=>assert.throws(()=>computeTrend({...stock,item:[...stock.item,stock.item[0]]},index)));
 test('非有限价格拒绝计算',()=>{const s=structuredClone(stock);s.item[0].close_price=NaN;assert.throws(()=>computeTrend(s,index));});
 test('不混入截面之后的日线',()=>assert.throws(()=>computeTrend({...stock,item:[...stock.item,{date_ms:stamp+86400000,close_price:1}]},index)));
-test('空字符串不能充作数值',()=>assert.throws(()=>validateSnapshot({timestamp:stamp,item:[{thscode:'000333.SZ',last_price:'',prev_price:100}]})));
-test('行情涨跌冲突拒绝显示',()=>assert.throws(()=>validateSnapshot({timestamp:stamp,item:[{thscode:'000333.SZ',last_price:110,prev_price:100,price_change_ratio_pct:-10}]})));
-test('行情涨跌使用昨收核对',()=>assert.ok(Math.abs(validateSnapshot({timestamp:stamp,item:[{thscode:'000333.SZ',last_price:110,prev_price:100,price_change_ratio_pct:10}]}).change_pct-10)<1e-8));
-test('同行数据缺失不生成排名',()=>assert.throws(()=>validateValuations({timestamp:stamp,item:[]})));
-test('无效估值不当有效倍数',()=>{const r=validateValuations({timestamp:stamp,item:['000333.SZ','600690.SH','000651.SZ'].map(thscode=>({thscode,name:'样本',pe_ttm:-1,pb_mrq:1}))});assert.equal(r.items[0].pe_ttm,null);});
+test('空字符串不能充作数值',()=>assert.throws(()=>validateSnapshot({timestamp:asOf,item:[{thscode:'000333.SZ',last_price:'',prev_price:100}]})));
+test('行情涨跌冲突拒绝显示',()=>assert.throws(()=>validateSnapshot({timestamp:asOf,item:[{thscode:'000333.SZ',last_price:110,prev_price:100,price_change_ratio_pct:-10}]})));
+test('行情涨跌使用昨收核对',()=>assert.ok(Math.abs(validateSnapshot({timestamp:asOf,item:[{thscode:'000333.SZ',last_price:110,prev_price:100,price_change_ratio_pct:10}]}).change_pct-10)<1e-8));
+test('同行数据缺失不生成排名',()=>assert.throws(()=>validateValuations({timestamp:asOf,item:[]})));
+test('无效估值不当有效倍数',()=>{const r=validateValuations({timestamp:asOf,item:['000333.SZ','600690.SH','000651.SZ'].map(thscode=>({thscode,name:'样本',pe_ttm:-1,pb_mrq:1}))});assert.equal(r.items[0].pe_ttm,null);});
+test('1970时间不能作为有效市场时点',()=>assert.throws(()=>validateMarketTimestamp(0,asOf)));
+test('未来24小时不能作为有效市场时点',()=>assert.throws(()=>validateMarketTimestamp(asOf+86400000,asOf)));
+test('超过24小时拒绝正常展示',()=>assert.throws(()=>validateMarketTimestamp(asOf-86400001,asOf)));
+test('24小时边界和5分钟时钟容差明确',()=>{assert.equal(validateMarketTimestamp(asOf-86400000,asOf),asOf-86400000);assert.equal(validateMarketTimestamp(asOf+300000,asOf),asOf+300000);assert.throws(()=>validateMarketTimestamp(asOf+300001,asOf));});
+test('非有限时间和秒级误传拒绝',()=>{for(const value of [NaN,Infinity,'2026-10-22',asOf/1000])assert.throws(()=>validateMarketTimestamp(value,asOf));});
+test('快照和估值入口均执行时效检查',()=>{const snapshot={timestamp:asOf-86400001,item:[{thscode:'000333.SZ',last_price:1,prev_price:1,price_change_ratio_pct:0}]};const valuation={timestamp:asOf+86400000,item:['000333.SZ','600690.SH','000651.SZ'].map(thscode=>({thscode,name:'样本',pe_ttm:1,pb_mrq:1}))};assert.throws(()=>validateSnapshot(snapshot,asOf));assert.throws(()=>validateValuations(valuation,asOf));});
+test('旧历史序列不足以覆盖固定截止日则拒绝',()=>{const shift=x=>({...x,item:x.item.map(row=>({...row,date_ms:row.date_ms-86400000}))});assert.throws(()=>computeTrend(shift(stock),shift(index)));});
