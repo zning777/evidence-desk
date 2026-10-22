@@ -7,12 +7,12 @@ const attempts = new Map<string, {start:number; count:number}>();
 const json = (body:unknown, status=200) => Response.json(body, {status, headers:{'Cache-Control':'no-store'}});
 
 export async function POST(request:Request) {
-  // Hosted owner-private access is enforced by Sites. No browser receives keys.
+  // Public read access; paid model requests require the server-side access code.
   const origin = request.headers.get('origin');
   if (origin && origin !== new URL(request.url).origin) return json({status:'request_rejected', message:'不接受跨站调用。'},403);
   const runtime = env as unknown as Record<string,string|undefined>;
   if(!runtime.DEMO_ACCESS_CODE)return json({status:'not_configured',message:'AI 演示访问口令尚未配置，公开证据仍可查阅。'},503);
-  if(request.headers.get('X-Demo-Access-Code')!==runtime.DEMO_ACCESS_CODE)return json({status:'unauthorized',message:'AI 访问口令错误或缺失。请使用提交说明中的评委口令；未调用模型。'},401);
+  if(request.headers.get('X-Demo-Access-Code')!==runtime.DEMO_ACCESS_CODE)return json({status:'unauthorized',message:'AI 访问口令错误或缺失，请核对后重试。'},401);
   if (Number(request.headers.get('content-length') || 0) > 2048) return json({status:'invalid_input',message:'问题过长。'},413);
   let question:string;
   try { const body = await request.json() as {question?:unknown};
