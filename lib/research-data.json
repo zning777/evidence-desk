@@ -1,0 +1,827 @@
+{
+  "catalog": {
+    "facts": {
+      "F_REVENUE": {
+        "id": "F_REVENUE",
+        "group": "positive",
+        "research_proposition": "营业收入金额规模继续增长",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_REVENUE"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98,
+          171
+        ],
+        "source_field_names": [
+          "operating_income"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "operating_income": "260042490000"
+          },
+          "2025-06-30": {
+            "operating_income": "251123714000"
+          }
+        },
+        "title": "营业收入同比增长",
+        "value": "+3.55%",
+        "detail": "2600.42亿元，上年同期2511.24亿元",
+        "formula": "(本期营业收入 / 同期营业收入 - 1) × 100%",
+        "limitation": "金额增长不等于销量增长。"
+      },
+      "F_PARENT": {
+        "id": "F_PARENT",
+        "group": "positive",
+        "research_proposition": "归属于母公司股东的利润增长",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_PARENT"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98
+        ],
+        "source_field_names": [
+          "parent_holder_net_profit"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "parent_holder_net_profit": "26446037000"
+          },
+          "2025-06-30": {
+            "parent_holder_net_profit": "26013690000"
+          }
+        },
+        "title": "归母净利润同比增长",
+        "value": "+1.66%",
+        "detail": "264.46亿元，上年同期260.14亿元",
+        "formula": "(本期归母净利润 / 同期归母净利润 - 1) × 100%",
+        "limitation": "不等同于合并整体盈利增长。"
+      },
+      "F_DEDUCTED": {
+        "id": "F_DEDUCTED",
+        "group": "negative",
+        "research_proposition": "扣非归母净利润表现",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_DEDUCTED"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7
+        ],
+        "source_field_names": [
+          "deducted_parent_net_profit"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "deducted_parent_net_profit": "19595179000"
+          },
+          "2025-06-30": {
+            "deducted_parent_net_profit": "26235399000"
+          }
+        },
+        "title": "扣非归母净利润同比下降",
+        "value": "-25.31%",
+        "detail": "195.95亿元，上年同期262.35亿元",
+        "formula": "(本期扣非归母净利润 / 同期扣非归母净利润 - 1) × 100%",
+        "limitation": "扣非归母净利润不直接等同主营业务利润。"
+      },
+      "F_TOTAL_MINORITY": {
+        "id": "F_TOTAL_MINORITY",
+        "group": "mixed",
+        "research_proposition": "合并利润与归母利润需要区分",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_TOTAL_AND_MINORITY"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98
+        ],
+        "source_field_names": [
+          "net_profit",
+          "minority_profit",
+          "parent_holder_net_profit"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "net_profit": "26582874000",
+            "minority_profit": "136837000",
+            "parent_holder_net_profit": "26446037000"
+          },
+          "2025-06-30": {
+            "net_profit": "26647354000",
+            "minority_profit": "633664000",
+            "parent_holder_net_profit": "26013690000"
+          }
+        },
+        "title": "合并净利润小幅下降",
+        "value": "-0.24%",
+        "detail": "少数股东损益：6.34亿元 → 1.37亿元",
+        "formula": "合并净利润 = 归母净利润 + 少数股东损益",
+        "limitation": "利润归属变化的会计关系不直接证明经营变化的原因。"
+      },
+      "F_NONRECURRING": {
+        "id": "F_NONRECURRING",
+        "group": "mixed",
+        "research_proposition": "归母与扣非差额可以会计勾稽",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_NONRECURRING"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98
+        ],
+        "source_field_names": [
+          "parent_holder_net_profit",
+          "deducted_parent_net_profit"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "parent_holder_net_profit": "26446037000",
+            "deducted_parent_net_profit": "19595179000"
+          },
+          "2025-06-30": {
+            "parent_holder_net_profit": "26013690000",
+            "deducted_parent_net_profit": "26235399000"
+          }
+        },
+        "title": "税后归母非经常性损益净额",
+        "value": "68.51亿元",
+        "detail": "上年同期按差额推算为-2.22亿元",
+        "formula": "归母净利润 - 扣非归母净利润",
+        "limitation": "会计勾稽不等于经济因果归因，上年同期值标记为计算值。"
+      },
+      "F_FX_EQUITY": {
+        "id": "F_FX_EQUITY",
+        "group": "mixed",
+        "research_proposition": "金融项目存在不同科目及分类",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_FX_DERIVATIVE_EQUITY"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          173,
+          174
+        ],
+        "source_field_names": [
+          "fx_profit_loss_pretax",
+          "derivative_fair_value_profit_loss_pretax",
+          "derivative_disposal_profit_loss_pretax",
+          "equity_fair_value_profit_loss_pretax"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "fx_profit_loss_pretax": "-5976109000",
+            "derivative_fair_value_profit_loss_pretax": "2311768000",
+            "derivative_disposal_profit_loss_pretax": "1421269000",
+            "equity_fair_value_profit_loss_pretax": "2677893000"
+          },
+          "2025-06-30": {
+            "fx_profit_loss_pretax": "2763131000",
+            "derivative_fair_value_profit_loss_pretax": "-453629000",
+            "derivative_disposal_profit_loss_pretax": "-350111000",
+            "equity_fair_value_profit_loss_pretax": "-892432000"
+          }
+        },
+        "title": "汇兑、衍生工具与权益工具分别列示",
+        "value": "税前合并口径",
+        "detail": "汇兑损益-59.76亿元；衍生工具公允价值损益23.12亿元；处置衍生工具损益14.21亿元；权益工具公允价值损益26.78亿元",
+        "formula": "按附注科目原值分别展示，不与税后归母净额直接相加",
+        "limitation": "风险管理目的不自动等同会计上的有效套期保值分类。"
+      },
+      "F_CASH": {
+        "id": "F_CASH",
+        "group": "positive",
+        "research_proposition": "合并经营现金流总量保持正值并小幅增长",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_CASH"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          99,
+          177
+        ],
+        "source_field_names": [
+          "act_cash_flow_net"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "act_cash_flow_net": "37552090000"
+          },
+          "2025-06-30": {
+            "act_cash_flow_net": "37281015000"
+          }
+        },
+        "title": "经营现金流净额同比小幅增长",
+        "value": "+0.73%",
+        "detail": "375.52亿元，上年同期372.81亿元",
+        "formula": "(本期经营现金流 / 同期经营现金流 - 1) × 100%",
+        "limitation": "正现金流或小幅增长不单独证明盈利质量优秀。"
+      },
+      "F_CASH_RATIO": {
+        "id": "F_CASH_RATIO",
+        "group": "mixed",
+        "research_proposition": "经营现金流与合并净利润的当期总量关系",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_CASH",
+          "E_TOTAL_AND_MINORITY"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98,
+          99,
+          177
+        ],
+        "source_field_names": [
+          "act_cash_flow_net",
+          "net_profit"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "act_cash_flow_net": "37552090000",
+            "net_profit": "26582874000"
+          },
+          "2025-06-30": {
+            "act_cash_flow_net": "37281015000",
+            "net_profit": "26647354000"
+          }
+        },
+        "title": "经营现金流 / 合并净利润",
+        "value": "1.4126倍",
+        "detail": "分子、分母均使用合并口径",
+        "formula": "经营现金流净额 / 合并净利润",
+        "limitation": "总量倍数不直接证明持续性、主营回款质量或利润项目的现金来源。"
+      },
+      "F_WORKING_CAPITAL": {
+        "id": "F_WORKING_CAPITAL",
+        "group": "mixed",
+        "research_proposition": "营运资本对现金流有占用与支持两面",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_WORKING_CAPITAL"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          177
+        ],
+        "source_field_names": [
+          "operating_receivables_increase_cash_outflow",
+          "operating_payables_increase_cash_inflow"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "operating_receivables_increase_cash_outflow": "24088817000",
+            "operating_payables_increase_cash_inflow": "25484008000"
+          },
+          "2025-06-30": {
+            "operating_receivables_increase_cash_outflow": "16926805000",
+            "operating_payables_increase_cash_inflow": "11575374000"
+          }
+        },
+        "title": "应收占用与应付支持同时存在",
+        "value": "两面影响",
+        "detail": "经营性应收增加占用240.89亿元；经营性应付增加支持254.84亿元",
+        "formula": "读取现金流补充资料，不与资产负债表单一应收/应付科目直接等同",
+        "limitation": "应付增加不自动证明议价力增强或拖欠供应商。"
+      },
+      "F_MARGIN": {
+        "id": "F_MARGIN",
+        "group": "negative",
+        "research_proposition": "单位营业收入对应的毛利空间收窄",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_MARGIN"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98,
+          171
+        ],
+        "source_field_names": [
+          "operating_income",
+          "operating_costs"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "operating_income": "260042490000",
+            "operating_costs": "194366771000"
+          },
+          "2025-06-30": {
+            "operating_income": "251123714000",
+            "operating_costs": "186786157000"
+          }
+        },
+        "title": "营业收入口径毛利率下降",
+        "value": "-0.3641个百分点",
+        "detail": "25.2558%，上年同期25.6199%",
+        "formula": "毛利率 = (营业收入 - 营业成本) / 营业收入；变动 = 本期率 - 同期率",
+        "limitation": "不等于制造业分部毛利率；未分拆价格、原材料与业务结构贡献。"
+      },
+      "F_GROSS_PROFIT": {
+        "id": "F_GROSS_PROFIT",
+        "group": "positive",
+        "research_proposition": "毛利金额与毛利率可能不同步",
+        "information_type": "披露事实与确定性计算",
+        "period_basis": "2026H1对2025H1，合并累计半年",
+        "normalized_amount_unit": "CNY yuan",
+        "evidence_ids": [
+          "E_MARGIN"
+        ],
+        "source_id": "midea_2026h1_szse",
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          98,
+          171
+        ],
+        "source_field_names": [
+          "operating_income",
+          "operating_costs"
+        ],
+        "raw_values": {
+          "2026-06-30": {
+            "operating_income": "260042490000",
+            "operating_costs": "194366771000"
+          },
+          "2025-06-30": {
+            "operating_income": "251123714000",
+            "operating_costs": "186786157000"
+          }
+        },
+        "title": "毛利金额增加",
+        "value": "13.38亿元",
+        "detail": "656.76亿元，上年同期643.38亿元",
+        "formula": "毛利金额 = 营业收入 - 营业成本",
+        "limitation": "毛利金额增长不等同毛利率提高，亦不构成主营净盈利结论。"
+      }
+    },
+    "relations": {
+      "R_ACCOUNTING": {
+        "id": "R_ACCOUNTING",
+        "text": "归母与扣非的分歧可按非经常性损益净额勾稽；这解释会计上的对应关系，不证明经营变化的原因。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_PARENT",
+          "E_DEDUCTED",
+          "E_NONRECURRING"
+        ],
+        "required_fact_ids": [
+          "F_PARENT",
+          "F_DEDUCTED",
+          "F_NONRECURRING"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          8
+        ]
+      },
+      "R_PROFIT_SCOPE": {
+        "id": "R_PROFIT_SCOPE",
+        "text": "归母利润与合并整体利润的变化方向不同，需要同时看少数股东损益，不能把归母增长概括成整体盈利增长。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_TOTAL_AND_MINORITY"
+        ],
+        "required_fact_ids": [
+          "F_PARENT",
+          "F_TOTAL_MINORITY"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          98
+        ]
+      },
+      "R_ISSUER_EXPLANATION": {
+        "id": "R_ISSUER_EXPLANATION",
+        "text": "公司将扣非下降主要归因于外币货币性项目汇率损失与风险管理衍生工具收益的经常/非经常分类差异。这是公司解释，具体经济贡献仍需逐项核对。",
+        "information_type": "公司解释及其限制",
+        "evidence_ids": [
+          "E_ISSUER_EXPLANATION",
+          "E_FX_DERIVATIVE_EQUITY"
+        ],
+        "required_fact_ids": [
+          "F_FX_EQUITY"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          7,
+          173,
+          174
+        ]
+      },
+      "R_FINANCIAL_COMPONENTS": {
+        "id": "R_FINANCIAL_COMPONENTS",
+        "text": "权益工具投资和衍生工具的损益分别存在，不能将全部非经常性净额视为外汇对冲收益；税前项目也不能直接与税后归母净额混算。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_FX_DERIVATIVE_EQUITY",
+          "E_NONRECURRING"
+        ],
+        "required_fact_ids": [
+          "F_FX_EQUITY",
+          "F_NONRECURRING"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          8,
+          173,
+          174
+        ]
+      },
+      "R_CASH_QUALIFIED": {
+        "id": "R_CASH_QUALIFIED",
+        "text": "现金流与利润的当期总量关系提供了一项观察依据，但盈利质量还受营运资本、业务范围和持续性影响，不能仅凭倍数下结论。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_CASH",
+          "E_TOTAL_AND_MINORITY"
+        ],
+        "required_fact_ids": [
+          "F_CASH",
+          "F_CASH_RATIO"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          99,
+          177
+        ]
+      },
+      "R_WORKING_CAPITAL": {
+        "id": "R_WORKING_CAPITAL",
+        "text": "应收增加占用资金，应付增加提供资金支持，两面需要一起看；单看经营现金流净额可能遗漏形成原因。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_WORKING_CAPITAL",
+          "E_CASH"
+        ],
+        "required_fact_ids": [
+          "F_CASH",
+          "F_WORKING_CAPITAL"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          177
+        ]
+      },
+      "R_CASH_SCOPE": {
+        "id": "R_CASH_SCOPE",
+        "text": "合并经营现金流包含金融业务相关活动，不能全部当作制造业务客户回款。非经常性利润金额也不能直接说明现金是否收现。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_CASH_SCOPE",
+          "E_CASH"
+        ],
+        "required_fact_ids": [
+          "F_CASH"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          99
+        ]
+      },
+      "R_MARGIN_DIVERGENCE": {
+        "id": "R_MARGIN_DIVERGENCE",
+        "text": "毛利金额增长与毛利率下降同时存在，应区分规模表现与单位收入的毛利空间，不用单一指标给公司整体贴好坏标签。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_MARGIN",
+          "E_REVENUE"
+        ],
+        "required_fact_ids": [
+          "F_REVENUE",
+          "F_MARGIN",
+          "F_GROSS_PROFIT"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          98,
+          171
+        ]
+      },
+      "R_MARGIN_BOUNDARY": {
+        "id": "R_MARGIN_BOUNDARY",
+        "text": "本次证据包未纳入足够的分部及费用明细，尚不能把整体毛利率变化归因于某项原材料、价格或业务结构，也不能推导主营整体盈利结论。",
+        "information_type": "限定分析",
+        "evidence_ids": [
+          "E_MARGIN"
+        ],
+        "required_fact_ids": [
+          "F_MARGIN"
+        ],
+        "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+        "source_pages": [
+          171
+        ]
+      }
+    },
+    "questions": {
+      "U_PROFIT_ATTRIBUTION": {
+        "id": "U_PROFIT_ATTRIBUTION",
+        "type": "归因未完成",
+        "question": "汇率、衍生工具与权益工具分别对税后归母利润贡献多少？",
+        "verification_path": "核对附注财务收入、公允价值变动、投资收益、所得税及非经常性明细的逐项对应。无法对应时保留未知，不计算因果占比。",
+        "change_condition": "只有税额、少数股东归属及科目对应能够核对，才更新具体贡献判断。"
+      },
+      "U_CASH_QUALITY": {
+        "id": "U_CASH_QUALITY",
+        "type": "研究材料不足",
+        "question": "剔除金融业务影响后，现金支持是否仍然稳健？",
+        "verification_path": "核对现金流金融业务分项、经营性应收应付补充资料与回款材料。",
+        "change_condition": "若证据显示现金主要依赖暂时性应付增加或金融活动，需要调整对现金支持的判断。"
+      },
+      "U_MARGIN_DRIVERS": {
+        "id": "U_MARGIN_DRIVERS",
+        "type": "归因未完成",
+        "question": "毛利率变化分别来自业务结构、价格还是成本？",
+        "verification_path": "将分产品、分地区收入成本附注纳入证据，再核查销售、管理、研发和财务费用。",
+        "change_condition": "只有新增分部或量价成本证据支持时，才更新原因判断。"
+      }
+    },
+    "routes": {
+      "profit_reconciliation": {
+        "required_fact_ids": [
+          "F_PARENT",
+          "F_DEDUCTED",
+          "F_TOTAL_MINORITY",
+          "F_NONRECURRING",
+          "F_FX_EQUITY"
+        ],
+        "allowed_fact_ids": [
+          "F_PARENT",
+          "F_DEDUCTED",
+          "F_TOTAL_MINORITY",
+          "F_NONRECURRING",
+          "F_FX_EQUITY"
+        ],
+        "required_relation_ids": [
+          "R_ACCOUNTING",
+          "R_PROFIT_SCOPE",
+          "R_FINANCIAL_COMPONENTS"
+        ],
+        "allowed_relation_ids": [
+          "R_ACCOUNTING",
+          "R_PROFIT_SCOPE",
+          "R_ISSUER_EXPLANATION",
+          "R_FINANCIAL_COMPONENTS"
+        ],
+        "required_question_ids": [
+          "U_PROFIT_ATTRIBUTION"
+        ],
+        "dimension_reason": "利润分歧优先核对利润口径、非经常性项目和归属范围。"
+      },
+      "cash_quality": {
+        "required_fact_ids": [
+          "F_CASH",
+          "F_CASH_RATIO",
+          "F_WORKING_CAPITAL"
+        ],
+        "allowed_fact_ids": [
+          "F_CASH",
+          "F_CASH_RATIO",
+          "F_WORKING_CAPITAL"
+        ],
+        "required_relation_ids": [
+          "R_CASH_QUALIFIED",
+          "R_WORKING_CAPITAL",
+          "R_CASH_SCOPE"
+        ],
+        "allowed_relation_ids": [
+          "R_CASH_QUALIFIED",
+          "R_WORKING_CAPITAL",
+          "R_CASH_SCOPE"
+        ],
+        "required_question_ids": [
+          "U_CASH_QUALITY"
+        ],
+        "dimension_reason": "现金质量优先核对现金与利润范围、营运资本及金融业务影响。"
+      },
+      "operating_margin": {
+        "required_fact_ids": [
+          "F_REVENUE",
+          "F_MARGIN",
+          "F_GROSS_PROFIT"
+        ],
+        "allowed_fact_ids": [
+          "F_REVENUE",
+          "F_MARGIN",
+          "F_GROSS_PROFIT"
+        ],
+        "required_relation_ids": [
+          "R_MARGIN_DIVERGENCE",
+          "R_MARGIN_BOUNDARY"
+        ],
+        "allowed_relation_ids": [
+          "R_MARGIN_DIVERGENCE",
+          "R_MARGIN_BOUNDARY"
+        ],
+        "required_question_ids": [
+          "U_MARGIN_DRIVERS"
+        ],
+        "dimension_reason": "收入与毛利问题优先区分规模、毛利金额和毛利率。"
+      }
+    },
+    "unavailable_facts": {},
+    "context_errors": [],
+    "scope": "单只股票、固定财务截面、有限解释关系库；不支持自由生成金融结论。"
+  },
+  "reference": {
+    "source_id": "midea_2026h1_szse",
+    "source_url": "https://disc.static.szse.cn/disc/disk03/finalpage/2026-08-29/df25443f-d67a-4cc5-8bd6-6c3e681a9575.PDF",
+    "title": "美的集团股份有限公司2026年半年度报告全文",
+    "reporting_scope": "合并报表",
+    "capture_method": "Assistant-reviewed transcription from official PDF text; not a live filing API",
+    "original_currency": "CNY",
+    "original_amount_unit": "人民币千元",
+    "normalized_amount_unit": "CNY yuan",
+    "normalization": "original_amount * 1000",
+    "reporting_period": "2026-01-01/2026-06-30",
+    "comparison_period": "2025-01-01/2025-06-30",
+    "source_context": "2025 comparative columns in the 2026 H1 filing; not an as-originally-published 2025 snapshot",
+    "periods": {
+      "2026-06-30": {
+        "operating_income": 260042490000,
+        "operating_costs": 194366771000,
+        "parent_holder_net_profit": 26446037000,
+        "deducted_parent_net_profit": 19595179000,
+        "net_profit": 26582874000,
+        "minority_profit": 136837000,
+        "act_cash_flow_net": 37552090000,
+        "nonrecurring_net_attributable_parent": 6850858000,
+        "fx_profit_loss_pretax": -5976109000,
+        "derivative_fair_value_profit_loss_pretax": 2311768000,
+        "derivative_disposal_profit_loss_pretax": 1421269000,
+        "equity_fair_value_profit_loss_pretax": 2677893000,
+        "operating_receivables_increase_cash_outflow": 24088817000,
+        "operating_payables_increase_cash_inflow": 25484008000
+      },
+      "2025-06-30": {
+        "operating_income": 251123714000,
+        "operating_costs": 186786157000,
+        "parent_holder_net_profit": 26013690000,
+        "deducted_parent_net_profit": 26235399000,
+        "net_profit": 26647354000,
+        "minority_profit": 633664000,
+        "act_cash_flow_net": 37281015000,
+        "fx_profit_loss_pretax": 2763131000,
+        "derivative_fair_value_profit_loss_pretax": -453629000,
+        "derivative_disposal_profit_loss_pretax": -350111000,
+        "equity_fair_value_profit_loss_pretax": -892432000,
+        "operating_receivables_increase_cash_outflow": 16926805000,
+        "operating_payables_increase_cash_inflow": 11575374000
+      }
+    },
+    "field_provenance": {
+      "operating_income": {
+        "pages": [
+          7,
+          98,
+          171
+        ],
+        "section": "主要会计数据；合并利润表；附注四(46)"
+      },
+      "operating_costs": {
+        "pages": [
+          98,
+          171
+        ],
+        "section": "合并利润表；附注四(46)"
+      },
+      "parent_holder_net_profit": {
+        "pages": [
+          7,
+          98
+        ],
+        "section": "主要会计数据；合并利润表"
+      },
+      "deducted_parent_net_profit": {
+        "pages": [
+          7
+        ],
+        "section": "主要会计数据"
+      },
+      "net_profit": {
+        "pages": [
+          98
+        ],
+        "section": "合并利润表"
+      },
+      "minority_profit": {
+        "pages": [
+          98
+        ],
+        "section": "合并利润表"
+      },
+      "act_cash_flow_net": {
+        "pages": [
+          7,
+          99,
+          177
+        ],
+        "section": "合并现金流量表；附注四(62)(c)"
+      },
+      "nonrecurring_net_attributable_parent": {
+        "pages": [
+          8,
+          204
+        ],
+        "section": "非经常性损益项目及金额"
+      },
+      "fx_profit_loss_pretax": {
+        "pages": [
+          173
+        ],
+        "section": "附注四(52)"
+      },
+      "derivative_fair_value_profit_loss_pretax": {
+        "pages": [
+          174
+        ],
+        "section": "附注四(56)"
+      },
+      "derivative_disposal_profit_loss_pretax": {
+        "pages": [
+          174
+        ],
+        "section": "附注四(57)"
+      },
+      "equity_fair_value_profit_loss_pretax": {
+        "pages": [
+          174
+        ],
+        "section": "附注四(56)"
+      },
+      "operating_receivables_increase_cash_outflow": {
+        "pages": [
+          177
+        ],
+        "section": "附注四(62)(c)"
+      },
+      "operating_payables_increase_cash_inflow": {
+        "pages": [
+          177
+        ],
+        "section": "附注四(62)(c)"
+      }
+    },
+    "company_explanation": {
+      "pages": [
+        7
+      ],
+      "paraphrase": "公司将扣非下降主要归因于外币货币性项目汇率损失与风险管理衍生工具收益的经常/非经常分类差异。",
+      "classification": "issuer_explanation_not_independently_proven_causal_attribution"
+    },
+    "limitations": [
+      "Pretax FX, derivative and equity figures cannot be directly added to after-tax parent-attributable results.",
+      "Risk-management derivatives are not automatically equivalent to accounting-designated effective hedging instruments.",
+      "No causal attribution percentage or forecast is established by these figures."
+    ]
+  },
+  "baseline_version": "midea-2026h1-reviewed-v3",
+  "data_mode": "公开财报固定截面；人工核对并由程序计算；非实时财报流"
+}
