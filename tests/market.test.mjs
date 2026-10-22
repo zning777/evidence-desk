@@ -1,0 +1,17 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {computeTrend,validateSnapshot,validateValuations} from '../lib/market.mjs';
+const stamp=Date.parse('2026-10-21T00:00:00+08:00');
+const stock={thscode:'000333.SZ',adjust:'forward',item:Array.from({length:21},(_,i)=>({date_ms:stamp-(20-i)*86400000,close_price:100+i}))};
+const index={thscode:'000300.SH',item:stock.item.map(x=>({...x,close_price:100}))};
+test('21条共同收盘形成20个区间',()=>{const r=computeTrend(stock,index);assert.equal(r.intervals,20);assert.ok(Math.abs(r.stock_return_pct-20)<1e-8);assert.equal(r.index_return_pct,0);assert.equal(r.max_close_drawdown_pct,0);});
+test('回撤按此前收盘高点计算',()=>{const s=structuredClone(stock);s.item[10].close_price=80;assert.ok(Math.abs(computeTrend(s,index).max_close_drawdown_pct-(80/109-1)*100)<1e-8);});
+test('不支持不同复权口径',()=>assert.throws(()=>computeTrend({...stock,adjust:'none'},index)));
+test('日期不足不补零',()=>assert.throws(()=>computeTrend({...stock,item:stock.item.slice(1)},index)));
+test('日期重复拒绝计算',()=>assert.throws(()=>computeTrend({...stock,item:[...stock.item,stock.item[0]]},index)));
+test('非有限价格拒绝计算',()=>{const s=structuredClone(stock);s.item[0].close_price=NaN;assert.throws(()=>computeTrend(s,index));});
+test('不混入截面之后的日线',()=>assert.throws(()=>computeTrend({...stock,item:[...stock.item,{date_ms:stamp+86400000,close_price:1}]},index)));
+test('空字符串不能充作数值',()=>assert.throws(()=>validateSnapshot({timestamp:stamp,item:[{thscode:'000333.SZ',last_price:'',prev_price:100}]})));
+test('行情涨跌冲突拒绝显示',()=>assert.throws(()=>validateSnapshot({timestamp:stamp,item:[{thscode:'000333.SZ',last_price:110,prev_price:100,price_change_ratio_pct:-10}]})));
+test('行情涨跌使用昨收核对',()=>assert.ok(Math.abs(validateSnapshot({timestamp:stamp,item:[{thscode:'000333.SZ',last_price:110,prev_price:100,price_change_ratio_pct:10}]}).change_pct-10)<1e-8));
+test('同行数据缺失不生成排名',()=>assert.throws(()=>validateValuations({timestamp:stamp,item:[]})));
+test('无效估值不当有效倍数',()=>{const r=validateValuations({timestamp:stamp,item:['000333.SZ','600690.SH','000651.SZ'].map(thscode=>({thscode,name:'样本',pe_ttm:-1,pb_mrq:1}))});assert.equal(r.items[0].pe_ttm,null);});

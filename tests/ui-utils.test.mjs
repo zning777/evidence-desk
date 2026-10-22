@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {parseSavedResearch,profitBridgeRows,formatYi} from '../lib/ui-utils.mjs';
+const {catalog}=JSON.parse(fs.readFileSync(new URL('../lib/research-data.json',import.meta.url),'utf8'));
+const item={question:'利润为什么分歧？',intent:'profit_reconciliation',time:'2026-10-22T07:00:00.000Z'};
+test('保留合法已存入口',()=>assert.deepEqual(parseSavedResearch(JSON.stringify([item]),catalog.routes),[item]));
+for(const raw of ['{','null','{}','42','"hello"'])test('损坏存储安全处理 '+raw,()=>assert.deepEqual(parseSavedResearch(raw,catalog.routes),[]));
+test('跳过损坏项但保留有效项',()=>assert.deepEqual(parseSavedResearch(JSON.stringify([null,{},item]),catalog.routes),[item]));
+test('拒绝非法日期',()=>assert.deepEqual(parseSavedResearch(JSON.stringify([{...item,time:'not a date'}]),catalog.routes),[]));
+test('拒绝原型路径',()=>assert.deepEqual(parseSavedResearch(JSON.stringify([{...item,intent:'__proto__'}]),catalog.routes),[]));
+test('拒绝超长已存问题',()=>assert.deepEqual(parseSavedResearch(JSON.stringify([{...item,question:'问'.repeat(201)}]),catalog.routes),[]));
+test('去重并最多保存20条',()=>{const rows=Array.from({length:25},(_,i)=>({...item,question:'问题'+i}));assert.equal(parseSavedResearch(JSON.stringify([rows[0],...rows]),catalog.routes).length,20);});
+test('利润桥两期原值计算，保留负差额',()=>{const rows=profitBridgeRows(catalog.facts.F_NONRECURRING.raw_values);assert.equal(rows[0].nonrecurring,6850858000);assert.equal(rows[1].nonrecurring,-221709000);assert.equal(formatYi(rows[1].nonrecurring),'-2.22');for(const r of rows)assert.equal(r.deducted+r.nonrecurring,r.parent);});
+test('利润桥拒绝非数字输入',()=>assert.throws(()=>profitBridgeRows({'2026-06-30':{parent_holder_net_profit:'NaN',deducted_parent_net_profit:'1'}})));
+test('所有财务卡两期字段完整',()=>{for(const f of Object.values(catalog.facts))for(const period of ['2026-06-30','2025-06-30'])for(const field of f.source_field_names)assert.ok(Number.isSafeInteger(Number(f.raw_values[period][field])));});
+test('说明段落不再复用框架table-caption工具类',()=>{const source=fs.readFileSync(new URL('../components/research-workbench.tsx',import.meta.url),'utf8');assert.ok(!source.includes('className="table-caption"'));assert.equal((source.match(/className="fact-data-caption"/g)||[]).length,2);});
+test('说明样式显式占据正常段落宽度',()=>{const css=fs.readFileSync(new URL('../app/globals.css',import.meta.url),'utf8');assert.match(css,/\.drawer \.fact-data-caption\{[^}]*display:block;[^}]*width:100%/);});
