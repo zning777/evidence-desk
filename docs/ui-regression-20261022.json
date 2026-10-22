@@ -1,0 +1,308 @@
+{
+  "testedAt": "2026-10-22T09:41:50.166Z",
+  "facts": [
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 1,
+      "sourceCount": 2,
+      "title": "归母净利润同比增长"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 1,
+      "sourceCount": 1,
+      "title": "扣非归母净利润同比下降"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 3,
+      "sourceCount": 2,
+      "title": "合并净利润小幅下降"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 2,
+      "sourceCount": 4,
+      "title": "税后归母非经常性损益净额"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "parentWidth": 575,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 4,
+      "sourceCount": 2,
+      "title": "汇兑、衍生工具与权益工具分别列示"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 1,
+      "sourceCount": 3,
+      "title": "经营现金流净额同比小幅增长"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 2,
+      "sourceCount": 4,
+      "title": "经营现金流 / 合并净利润"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 2,
+      "sourceCount": 1,
+      "title": "应收占用与应付支持同时存在"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 1,
+      "sourceCount": 3,
+      "title": "营业收入同比增长"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 2,
+      "sourceCount": 3,
+      "title": "营业收入口径毛利率下降"
+    },
+    {
+      "captions": [
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        },
+        {
+          "display": "block",
+          "height": 19.796875,
+          "width": 519
+        }
+      ],
+      "drawerScroll": 0,
+      "rows": 2,
+      "sourceCount": 3,
+      "title": "毛利金额增加"
+    }
+  ],
+  "filterChecks": [
+    {
+      "label": "正面证据",
+      "cards": 1
+    },
+    {
+      "label": "负面证据",
+      "cards": 1
+    },
+    {
+      "label": "交叉 / 分歧",
+      "cards": 3
+    },
+    {
+      "label": "待验证",
+      "cards": 1
+    }
+  ],
+  "relationChecks": [
+    {
+      "dependencies": 3,
+      "scroll": 0,
+      "sources": 2
+    },
+    {
+      "dependencies": 2,
+      "scroll": 0,
+      "sources": 1
+    },
+    {
+      "dependencies": 1,
+      "scroll": 0,
+      "sources": 3
+    },
+    {
+      "dependencies": 2,
+      "scroll": 0,
+      "sources": 3
+    },
+    {
+      "dependencies": 2,
+      "scroll": 0,
+      "sources": 2
+    },
+    {
+      "dependencies": 2,
+      "scroll": 0,
+      "sources": 1
+    },
+    {
+      "dependencies": 1,
+      "scroll": 0,
+      "sources": 1
+    },
+    {
+      "dependencies": 3,
+      "scroll": 0,
+      "sources": 2
+    },
+    {
+      "dependencies": 1,
+      "scroll": 0,
+      "sources": 1
+    }
+  ],
+  "unknownChecks": [
+    {
+      "sections": [
+        "下一步查什么",
+        "更新判断的条件",
+        "回到原始证据"
+      ],
+      "sources": 5,
+      "title": "汇率、衍生工具与权益工具分别对税后归母利润贡献多少？"
+    },
+    {
+      "sections": [
+        "下一步查什么",
+        "更新判断的条件",
+        "回到原始证据"
+      ],
+      "sources": 2,
+      "title": "剔除金融业务影响后，现金支持是否仍然稳健？"
+    },
+    {
+      "sections": [
+        "下一步查什么",
+        "更新判断的条件",
+        "回到原始证据"
+      ],
+      "sources": 1,
+      "title": "毛利率变化分别来自业务结构、价格还是成本？"
+    }
+  ],
+  "scope": "本机开发预览；不代表已上线，不验证外部PDF阅读器行为"
+}
